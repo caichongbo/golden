@@ -6,4 +6,5 @@
 #import "UploadImage.h"
 #import "DocumentForOc.h"
 #import "JFMinimalNotification.h"
+#import "TWMessageBarManager.h"
 //#import  "XMPP.h"

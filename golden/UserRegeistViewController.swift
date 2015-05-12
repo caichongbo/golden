@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class UserRegeistViewController: UIViewController,UITextFieldDelegate {
     
@@ -21,11 +22,11 @@ class UserRegeistViewController: UIViewController,UITextFieldDelegate {
     let headerLabel:UILabel!
     let headerRightLabel:UILabel!
     let regeistButton:UIButton!
-    //let contentLabel:UILable!
+    let xieyiLabel:UILabel!
     let markLabelTap = UITapGestureRecognizer()//获取验证码手势
     let contentTap = UITapGestureRecognizer()//查看用户许可协议
     let headerRightLabelTap = UITapGestureRecognizer()//已有账号
-    
+    let TWMessageAlert: TWMessageBarManager = TWMessageBarManager()
     
     init (){
         var w=UIScreen.mainScreen().bounds.size.width
@@ -50,14 +51,11 @@ class UserRegeistViewController: UIViewController,UITextFieldDelegate {
         
         regeistButton = UIButton.buttonWithType(.System) as! UIButton
         regeistButton.frame = CGRectMake(15, userPassTextFiled.frame.maxY+20, w-30, 54)
-
-        
+        xieyiLabel = UILabel(frame: CGRect(x: 15, y: regeistButton.frame.maxY+20, width: w-30, height: 25))
+        xieyiLabel.textColor = UIColor.darkGrayColor()
         super.init(nibName: nil, bundle: nil)
-        
-        
-        
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -72,8 +70,8 @@ class UserRegeistViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         let w  = view.frame.width
         let h = view.frame.height
-        view.backgroundColor = UIColor(rgb: 0xf3f4f6)
-        header.backgroundColor = UIColor(rgb: 0xf7f7f8)
+        view.backgroundColor = AUTO_BODY_COLOR
+        header.backgroundColor = AUTO_NAVIGATIONBAR_COLOR
         returnButton.addTarget(self, action: "canleButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
         headerLabel.textAlignment = NSTextAlignment.Center
         headerLabel.text = "注册"
@@ -83,12 +81,12 @@ class UserRegeistViewController: UIViewController,UITextFieldDelegate {
         headerRightLabel.text = "已有账号"
         headerRightLabel.font = UIFont.systemFontOfSize(17)
         headerRightLabel.textColor = UIColor.darkGrayColor()
-
+        
         headerRightLabelTap.addTarget(self, action: "canleButtonClick")
         headerRightLabel.addGestureRecognizer(headerRightLabelTap)
         headerRightLabel.userInteractionEnabled = true
         
-    
+        
         header.addSubview(headerLabel)
         header.addSubview(returnButton)
         header.addSubview(headerRightLabel)
@@ -147,7 +145,7 @@ class UserRegeistViewController: UIViewController,UITextFieldDelegate {
         markLabel.textColor = UIColor.whiteColor()
         markLabel.font = UIFont.boldSystemFontOfSize(14)
         markLabel.textAlignment = NSTextAlignment.Center
-        markLabel.backgroundColor = UIColor.greenColor()
+        markLabel.backgroundColor = UIColor(red: 97/255, green: 194/255, blue: 101/255, alpha:1)//设置边框颜色
         
         markLabelTap.addTarget(self, action: "markLabelTapClick")
         markLabel.addGestureRecognizer(markLabelTap)
@@ -193,9 +191,14 @@ class UserRegeistViewController: UIViewController,UITextFieldDelegate {
         loginTextLable.text = "注    册"
         regeistButton.addSubview(loginTextLable)
         
-        let contentLabel = UILabel(frame: CGRect(x: 0, y: 300, width: w, height: 40))
-        
-        
+        var myString = "点击注册即同意3DiShow的《用户许可协议》"
+        var myMutableString = NSMutableAttributedString(string: myString , attributes: [NSFontAttributeName:UIFont(name: "HelveticaNeue", size: 12.0)!])
+        myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSRange(location:15,length:8))
+        xieyiLabel.attributedText = myMutableString
+        contentTap.addTarget(self, action: "contentTapClick")
+        xieyiLabel.addGestureRecognizer(contentTap)
+        xieyiLabel.userInteractionEnabled = true
+        self.view.addSubview(xieyiLabel)
         
         // Do any additional setup after loading the view.
     }
@@ -210,28 +213,39 @@ class UserRegeistViewController: UIViewController,UITextFieldDelegate {
     
     func markLabelTapClick(){
         println("促发点击")
+        getMark()
         markLabel.removeGestureRecognizer(markLabelTap)
-        markLabel.textColor = UIColor.whiteColor()
+        markLabel.textColor = UIColor.grayColor()
         markLabel.backgroundColor = UIColor.darkGrayColor()
-        timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: Selector("updateColor"), userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: Selector("updateColor"), userInfo: nil, repeats: false)
     }
     
-
+    func contentTapClick(){
+        println("点击用户许可协议")
+    }
+    
+    
     
     func updateColor(){
         println("定时更新")
         markLabel.addGestureRecognizer(markLabelTap)
         markLabel.userInteractionEnabled = true
         markLabel.textColor = UIColor.whiteColor()
-        markLabel.backgroundColor = UIColor.greenColor()
+        markLabel.backgroundColor = UIColor(red: 97/255, green: 194/255, blue: 101/255, alpha:1)
+        document.clearTokenCode
     }
     
     func regeistButtonClick(sender:UIButton){
         
+        let token =  document.queryTokenMessage()
+        if markTextFiled.text == token {
+            
+        } else {
+             SweetAlert().showAlert("验证码输入有误", subTitle: "请输入有效验证码！", style: AlertStyle.Error)
+        }
     }
     
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -242,5 +256,28 @@ class UserRegeistViewController: UIViewController,UITextFieldDelegate {
             self.timer.invalidate()
         }
         super.viewWillDisappear(animated)
+    }
+    
+    func getMark(){
+        var regeistToken = ""
+        alamofireManager!.request(.POST, "http://192.168.92.202/api/userReg/getToken", parameters: ["mobilePhone":"\(userNameTextFiled.text)"]).responseJSON {
+            (_,_,json,error) -> Void in
+            if error == nil {dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), { () -> Void in
+                if let j = json as? NSDictionary {
+                    var msg: String = j.valueForKey("code") as! String
+                    if(msg == "100"){
+                        var ap:NSDictionary = j.valueForKey("body") as! NSDictionary
+                        regeistToken = ap["token"] as! String
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            document.saveTokenMessage(regeistToken)
+                            println("验证码为:"+regeistToken)
+                        })
+                    }
+                }
+            })
+            } else{
+                SweetAlert().showAlert("获取验证码失败!", subTitle: "服务器异常，请稍后再试！", style: AlertStyle.Error)
+            }
+        }
     }
 }

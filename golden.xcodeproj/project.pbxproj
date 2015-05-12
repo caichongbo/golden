@@ -80,6 +80,14 @@
 		0BCB47F41B005C2300B4C3D2 /* UIColor+JFMinimalNotificationColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB47EE1B005C2300B4C3D2 /* UIColor+JFMinimalNotificationColors.m */; };
 		0BCB47F51B005C2300B4C3D2 /* UIView+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB47F01B005C2300B4C3D2 /* UIView+Round.m */; };
 		0BCB47F71B00B4C200B4C3D2 /* UserRegeistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB47F61B00B4C200B4C3D2 /* UserRegeistViewController.swift */; };
+		0BCB48051B01C9C200B4C3D2 /* TWMessageBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB48021B01C9C200B4C3D2 /* TWMessageBarManager.m */; };
+		0BCB48191B01D1A000B4C3D2 /* icon-error.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BCB48131B01D1A000B4C3D2 /* icon-error.png */; };
+		0BCB481A1B01D1A000B4C3D2 /* icon-error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BCB48141B01D1A000B4C3D2 /* icon-error@2x.png */; };
+		0BCB481B1B01D1A000B4C3D2 /* icon-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BCB48151B01D1A000B4C3D2 /* icon-info.png */; };
+		0BCB481C1B01D1A000B4C3D2 /* icon-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BCB48161B01D1A000B4C3D2 /* icon-info@2x.png */; };
+		0BCB481D1B01D1A000B4C3D2 /* icon-success.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BCB48171B01D1A000B4C3D2 /* icon-success.png */; };
+		0BCB481E1B01D1A000B4C3D2 /* icon-success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BCB48181B01D1A000B4C3D2 /* icon-success@2x.png */; };
+		0BCB48201B01D97A00B4C3D2 /* Token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BCB481F1B01D97A00B4C3D2 /* Token.plist */; };
 		0BD868001AF871D800D4B66B /* Hot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BD867FF1AF871D800D4B66B /* Hot.storyboard */; };
 		0BF01AEB1AFA063B00D4675D /* User.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BF01AEA1AFA063B00D4675D /* User.plist */; };
 		0BF01AED1AFA064700D4675D /* Image.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BF01AEC1AFA064700D4675D /* Image.plist */; };
@@ -241,6 +249,15 @@
 		0BCB47EF1B005C2300B4C3D2 /* UIView+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Round.h"; sourceTree = "<group>"; };
 		0BCB47F01B005C2300B4C3D2 /* UIView+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Round.m"; sourceTree = "<group>"; };
 		0BCB47F61B00B4C200B4C3D2 /* UserRegeistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegeistViewController.swift; sourceTree = "<group>"; };
+		0BCB48011B01C9C200B4C3D2 /* TWMessageBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWMessageBarManager.h; sourceTree = "<group>"; };
+		0BCB48021B01C9C200B4C3D2 /* TWMessageBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMessageBarManager.m; sourceTree = "<group>"; };
+		0BCB48131B01D1A000B4C3D2 /* icon-error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-error.png"; sourceTree = "<group>"; };
+		0BCB48141B01D1A000B4C3D2 /* icon-error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-error@2x.png"; sourceTree = "<group>"; };
+		0BCB48151B01D1A000B4C3D2 /* icon-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-info.png"; sourceTree = "<group>"; };
+		0BCB48161B01D1A000B4C3D2 /* icon-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-info@2x.png"; sourceTree = "<group>"; };
+		0BCB48171B01D1A000B4C3D2 /* icon-success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success.png"; sourceTree = "<group>"; };
+		0BCB48181B01D1A000B4C3D2 /* icon-success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success@2x.png"; sourceTree = "<group>"; };
+		0BCB481F1B01D97A00B4C3D2 /* Token.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Token.plist; sourceTree = "<group>"; };
 		0BD867FF1AF871D800D4B66B /* Hot.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hot.storyboard; sourceTree = "<group>"; };
 		0BF01AEA1AFA063B00D4675D /* User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = User.plist; sourceTree = "<group>"; };
 		0BF01AEC1AFA064700D4675D /* Image.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Image.plist; sourceTree = "<group>"; };
@@ -488,6 +505,7 @@
 		0B857A4D1AF76E5C009A0B0C /* golden */ = {
 			isa = PBXGroup;
 			children = (
+				0BCB47FC1B01C97B00B4C3D2 /* TWManagers */,
 				0BCB47E61B005C1900B4C3D2 /* JFMinimalNotification */,
 				0BABEFC91AFCC12700E18D4B /* SocketIOClientSwift */,
 				0BF01AFD1AFB40F600D4675D /* image */,
@@ -581,11 +599,27 @@
 			name = JFMinimalNotification;
 			sourceTree = "<group>";
 		};
+		0BCB47FC1B01C97B00B4C3D2 /* TWManagers */ = {
+			isa = PBXGroup;
+			children = (
+				0BCB48131B01D1A000B4C3D2 /* icon-error.png */,
+				0BCB48141B01D1A000B4C3D2 /* icon-error@2x.png */,
+				0BCB48151B01D1A000B4C3D2 /* icon-info.png */,
+				0BCB48161B01D1A000B4C3D2 /* icon-info@2x.png */,
+				0BCB48171B01D1A000B4C3D2 /* icon-success.png */,
+				0BCB48181B01D1A000B4C3D2 /* icon-success@2x.png */,
+				0BCB48011B01C9C200B4C3D2 /* TWMessageBarManager.h */,
+				0BCB48021B01C9C200B4C3D2 /* TWMessageBarManager.m */,
+			);
+			name = TWManagers;
+			sourceTree = "<group>";
+		};
 		0BF01AE61AFA061100D4675D /* plist */ = {
 			isa = PBXGroup;
 			children = (
 				0BF01AEA1AFA063B00D4675D /* User.plist */,
 				0BF01AEC1AFA064700D4675D /* Image.plist */,
+				0BCB481F1B01D97A00B4C3D2 /* Token.plist */,
 			);
 			name = plist;
 			sourceTree = "<group>";
@@ -758,15 +792,22 @@
 			files = (
 				0BF01AED1AFA064700D4675D /* Image.plist in Resources */,
 				0B470CC01AF88C1000C94C6E /* made.storyboard in Resources */,
+				0BCB481D1B01D1A000B4C3D2 /* icon-success.png in Resources */,
 				0B857A591AF76E5C009A0B0C /* Main.storyboard in Resources */,
 				0B857A5E1AF76E5C009A0B0C /* LaunchScreen.xib in Resources */,
+				0BCB481E1B01D1A000B4C3D2 /* icon-success@2x.png in Resources */,
+				0BCB48201B01D97A00B4C3D2 /* Token.plist in Resources */,
 				0BD868001AF871D800D4B66B /* Hot.storyboard in Resources */,
 				0B5702CA1AF7DB7A004CB939 /* Podfile in Resources */,
 				0BF01AEB1AFA063B00D4675D /* User.plist in Resources */,
 				0B470CBE1AF88BE400C94C6E /* play.storyboard in Resources */,
+				0BCB481B1B01D1A000B4C3D2 /* icon-info.png in Resources */,
+				0BCB481C1B01D1A000B4C3D2 /* icon-info@2x.png in Resources */,
 				0BABEFC31AFCB49C00E18D4B /* Images.xcassets in Resources */,
+				0BCB48191B01D1A000B4C3D2 /* icon-error.png in Resources */,
 				0B470CB71AF88B6300C94C6E /* chat.storyboard in Resources */,
 				0B470CBC1AF88BB000C94C6E /* user.storyboard in Resources */,
+				0BCB481A1B01D1A000B4C3D2 /* icon-error@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +858,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BCB48051B01C9C200B4C3D2 /* TWMessageBarManager.m in Sources */,
 				0BCB47F11B005C2300B4C3D2 /* JFMinimalNotification.m in Sources */,
 				0B08ADCC1AF8A97D005F88CA /* MineTableView.swift in Sources */,
 				0BABEFDB1AFCC13500E18D4B /* SocketFixUTF8.swift in Sources */,

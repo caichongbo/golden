@@ -21,11 +21,15 @@ class UserRootViewController:UIViewController,UserSourceProtocol {
         return home
     }
     
+    func initNavigationHeight(){
+        navigationBarHeight = self.navigationController!.navigationBar.frame.height+20
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initNavigationHeight()
         title = "我的"
-        navigationBarHeight = self.navigationController!.navigationBar.frame.height+20
-        
         var w = view.frame.width
         var h = view.frame.height
         view.backgroundColor = UIColor.darkGrayColor()

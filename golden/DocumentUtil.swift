@@ -7,13 +7,16 @@
 //
 
 import UIKit
-let User_Plist = "User.plist"
-let Image_Plist = "Image.plist"
+let USER_PLIST = "User.plist"
+let IMAGE_PLIST = "Image.plist"
+let TOKEN_PLIST = "Token.plist"
 //沙盒操作类
 class DocumentUtil: NSObject {
     
     let user = "USER_ID"
+    let token = "TOKEN_ID"
     let Plist = "plist"
+    let clearTokenCode = "xxxxxx"
     
     
     //保存图片至沙盒并保存图片key value至Image.plist文件
@@ -62,7 +65,7 @@ class DocumentUtil: NSObject {
     
     //查询沙盒中的图片存储路径，key为图片远程url
     func queryImageUrl(key:String) -> String!{
-        let resultDictionary = queryDataOfPlist(Image_Plist)
+        let resultDictionary = queryDataOfPlist(IMAGE_PLIST)
         if resultDictionary.count != 0 {
             if let x  = resultDictionary.objectForKey(key) as? String{
                 return x
@@ -73,9 +76,9 @@ class DocumentUtil: NSObject {
     
     //保存图片信息至plist中
     func addImageToPlist(url:String,filePath:String) {
-        let resultDictionary = queryDataOfPlist(Image_Plist)
+        let resultDictionary = queryDataOfPlist(IMAGE_PLIST)
         resultDictionary.setObject(filePath, forKey: url)
-        saveDataToPlist(Image_Plist,data:resultDictionary)
+        saveDataToPlist(IMAGE_PLIST,data:resultDictionary)
     }
     
     
@@ -83,7 +86,7 @@ class DocumentUtil: NSObject {
     
     //判断是否已经登陆
     func haveLogin() -> Bool{
-        let resultDictionary = queryDataOfPlist(User_Plist)
+        let resultDictionary = queryDataOfPlist(USER_PLIST)
         if resultDictionary.count != 0 {
             if let x  = resultDictionary.objectForKey(user) as? String{
                 return true
@@ -95,8 +98,31 @@ class DocumentUtil: NSObject {
     //保存用户信息到沙盒中
     func saveLoginMessage(userId:String){
         let dic:NSMutableDictionary = [user:userId]
-        saveDataToPlist(User_Plist,data:dic)
+        saveDataToPlist(USER_PLIST,data:dic)
     }
+    
+    //保存验证码信息至沙盒中
+    func saveTokenMessage(tokenId:String){
+        let dic:NSMutableDictionary = [token:tokenId]
+        saveDataToPlist(TOKEN_PLIST,data:dic)
+    }
+    
+    //查询token信息
+    func queryTokenMessage() ->String{
+        let resultDictionary = queryDataOfPlist(TOKEN_PLIST)
+        if resultDictionary.count != 0 {
+            if let x  = resultDictionary.objectForKey(token) as? String{
+                return x
+            }
+        }
+        return clearTokenCode
+    }
+    
+    //重置token信息
+    func clearTokenMessage(){
+        self.saveTokenMessage(clearTokenCode)
+    }
+    
     
 
     //在沙盒中创建plist文件

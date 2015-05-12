@@ -64,8 +64,8 @@ class UserLoginViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         let w  = view.frame.width
         let h = view.frame.height
-        view.backgroundColor = UIColor(rgb: 0xf3f4f6)
-        header.backgroundColor = UIColor(rgb: 0xf7f7f8)
+        view.backgroundColor = AUTO_BODY_COLOR
+        header.backgroundColor = AUTO_NAVIGATIONBAR_COLOR
         returnButton.addTarget(self, action: "canleButtonClick:", forControlEvents: UIControlEvents.TouchUpInside)
         
         

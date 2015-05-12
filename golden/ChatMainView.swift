@@ -3,7 +3,7 @@
 //  golden
 //
 //  Created by 蔡崇博 on 15/5/5.
-//  Copyright (c) 2015年 张立.  All rights reserved.
+//  Copyright (c) 2015年 张立. All rights reserved.
 //
 
 import UIKit
@@ -34,7 +34,7 @@ class ChatMainView :UITableView,UITableViewDelegate, UITableViewDataSource {
     
     
     
-    //指定有多少个分区(Section)， 2
+    //指定有多少个分区(Section)，2
     func numberOfSectionsInTableView(tableView:UITableView)->Int{
         return 2
     }

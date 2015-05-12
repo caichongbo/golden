@@ -12,6 +12,8 @@ import Alamofire
 let document = DocumentUtil()
 var alamofireManager:Alamofire.Manager?
 var navigationBarHeight:CGFloat = 0.0
+let AUTO_BODY_COLOR = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha:1)
+let AUTO_NAVIGATIONBAR_COLOR = UIColor(red: 247/255, green: 247/255, blue: 249/255, alpha:1)
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -38,8 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //document.queryDataOfPlist("User.plist")
         //document.queryDataOfPlist("Image.plist")
         
-        document.clearDataOfPlist("User.plist")
-        document.clearDataOfPlist("Image.plist")
+        document.clearDataOfPlist(USER_PLIST)
+        document.clearDataOfPlist(IMAGE_PLIST)
+        document.clearDataOfPlist(TOKEN_PLIST)
     }
     
 
