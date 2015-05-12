@@ -103,6 +103,7 @@
 		0BF7A7EB1AF76F6C00B98EAC /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A7EA1AF76F6C00B98EAC /* RootController.swift */; };
 		0BF7A7ED1AF76FBE00B98EAC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A7EC1AF76FBE00B98EAC /* TabBarController.swift */; };
 		95AB21E055CDA92A0DE8DC34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A254484FE678748F4763EB /* libPods.a */; };
+		FC984C4C1B01E13300925D7B /* InviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC984C4B1B01E13300925D7B /* InviteFriendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +286,7 @@
 		7801C787A8670B93A3019BA2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E166DC3719688240BB7B8334 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E6A254484FE678748F4763EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC984C4B1B01E13300925D7B /* InviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +399,7 @@
 		0B5702A51AF773B7004CB939 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				FC984C471B01E0DB00925D7B /* inviteFriend */,
 				0B36240F1AFDA3EE001E9592 /* onchat */,
 				0B36240E1AFDA3AE001E9592 /* model */,
 				0B3624011AFDA39F001E9592 /* ChatMainView.swift */,
@@ -668,6 +671,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FC984C471B01E0DB00925D7B /* inviteFriend */ = {
+			isa = PBXGroup;
+			children = (
+				FC984C4B1B01E13300925D7B /* InviteFriendViewController.swift */,
+			);
+			name = inviteFriend;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -911,6 +922,7 @@
 				0B08ADBE1AF8A876005F88CA /* UserMessageUserNoteEditController.swift in Sources */,
 				0B08ADC31AF8A8B8005F88CA /* AlamofireUtil.swift in Sources */,
 				0BABEFE11AFCC13500E18D4B /* WebSocket.swift in Sources */,
+				FC984C4C1B01E13300925D7B /* InviteFriendViewController.swift in Sources */,
 				0B08ADB81AF8A876005F88CA /* UserMessageController.swift in Sources */,
 				0BF01B051AFB592500D4675D /* SweetAlert.swift in Sources */,
 				0B08AE391AF9DE72005F88CA /* UserLoginViewController.swift in Sources */,
